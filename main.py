@@ -1,4 +1,4 @@
-import pygame
+import pygame # type: ignore
 from constants import *
 
 def main ():
