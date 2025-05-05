@@ -19,6 +19,7 @@ def main ():
             if event.type == pygame.QUIT:
                 return
             
+        player.update(dt)           # Update player rotation before drawing    
         screen.fill((0,0,0))        # Clear screen
         player.draw(screen)         # Draw player
         pygame.display.flip()       # Update the screen
