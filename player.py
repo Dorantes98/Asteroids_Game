@@ -15,4 +15,10 @@ class Player(CircleShape):
         c = self.position - forward * self.radius + right
         return [a, b, c]
     
-
+    def draw_player(self, screen):
+        pygame.draw.polygon(
+            screen,             # Surface to draw on
+            "white",            # Color
+            self.triangle(),    # List of 3 points that form a triangle
+            2                   # Line thickness
+        )
