@@ -15,7 +15,7 @@ class Player(CircleShape):
         c = self.position - forward * self.radius + right
         return [a, b, c]
     
-    def draw_player(self, screen):
+    def draw(self, screen):
         pygame.draw.polygon(
             screen,             # Surface to draw on
             "white",            # Color
