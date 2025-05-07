@@ -8,9 +8,15 @@ def main ():
     print("Screen height: 720")
 
     pygame.init()
+
+    updatable = pygame.sprite.Group()
+    drawable = pygame.sprite.Group()
+
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
     clock = pygame.time.Clock()
     dt = 0
+
+    Player.containers = updatable, drawable
 
     player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
 
@@ -19,9 +25,10 @@ def main ():
             if event.type == pygame.QUIT:
                 return
             
-        player.update(dt)           # Update player rotation before drawing    
+        updatable.update(dt)           # Update player rotation before drawing    
         screen.fill((0,0,0))        # Clear screen
-        player.draw(screen)         # Draw player
+        for sprite in drawable:
+            sprite.draw(screen)
         pygame.display.flip()       # Update the screen
         dt = clock.tick(60) / 1000  # 
 
